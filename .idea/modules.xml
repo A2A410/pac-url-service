@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/pac-server.iml" filepath="$PROJECT_DIR$/pac-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pac-url-service.iml" filepath="$PROJECT_DIR$/pac-url-service.iml" />
     </modules>
   </component>
 </project>

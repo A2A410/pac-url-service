@@ -1,6 +1,7 @@
 package com.headuck.httpserver;
 
 import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
@@ -33,6 +34,9 @@ public class HttpService extends Service {
         PendingIntent pendingIntent = PendingIntent.getActivity(this,
                 0, notificationIntent, 0);
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setOngoing(true)
+                .setPriority(NotificationManager.IMPORTANCE_MIN)
+                .setCategory(Notification.CATEGORY_SERVICE)
                 .setContentTitle("PAC Url Service")
                 .setContentText("Url: http://localhost:" + port+"/direct.pac")
                 .setSmallIcon(R.drawable.ic_notification_duck)
@@ -55,7 +59,7 @@ public class HttpService extends Service {
 
     @Override
     public void onDestroy() {
-        if (mHttpd.wasStarted()) {
+        if (mHttpd != null && mHttpd.wasStarted()) {
             mHttpd.stop();
         }
         super.onDestroy();
